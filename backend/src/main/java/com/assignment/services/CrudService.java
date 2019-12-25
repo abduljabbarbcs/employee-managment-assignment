@@ -1,9 +1,10 @@
 package com.assignment.services;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
-
-public abstract class CrudService<M extends com.assignment.models.Model, R extends CrudRepository<M, Long>> {
+public abstract class CrudService<M extends com.assignment.models.Model, R extends PagingAndSortingRepository<M, Long>> {
     R repo;
 
     public abstract void setRepo(R repo);
@@ -16,9 +17,10 @@ public abstract class CrudService<M extends com.assignment.models.Model, R exten
      */
     public abstract M copy(M from, M to);
 
-    public Iterable<M> getAll() {
 
-        return this.repo.findAll();
+    public Iterable<M> getAll(Pageable pageable) {
+
+        return this.repo.findAll(pageable);
     }
 
     /**

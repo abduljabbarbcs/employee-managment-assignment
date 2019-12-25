@@ -5,9 +5,14 @@ import com.assignment.services.CrudService;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
+import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
-public abstract class CrudController<M extends Model, S extends CrudService<M, ? extends CrudRepository<M,Long>>> {
+public abstract class CrudController<M extends Model, S extends CrudService<M, ? extends PagingAndSortingRepository<M,Long>>> {
     S service;
 
     public abstract void setService(S service);
@@ -47,11 +52,15 @@ public abstract class CrudController<M extends Model, S extends CrudService<M, ?
         return null;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public @ResponseBody Iterable<M> getAll(ModelMap map) {
+    @RequestMapping(value="/" , params = { "page", "size" } , method = RequestMethod.GET)
+    public @ResponseBody
+    Iterable<M> getAll(@RequestParam("page") int page,
+                       @RequestParam("size") int size) {
+
         if (isAuthorized(service))
         {
-            return service.getAll();
+            Pageable pageable = new PageRequest(page, size);
+            return service.getAll(pageable);
         }
         return null;
     }
