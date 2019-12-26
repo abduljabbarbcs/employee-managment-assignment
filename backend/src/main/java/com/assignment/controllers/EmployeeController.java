@@ -2,7 +2,6 @@ package com.assignment.controllers;
 
 import com.assignment.models.Employee;
 import com.assignment.services.EmployeeService;
-//import io.swagger.annotations.Api;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

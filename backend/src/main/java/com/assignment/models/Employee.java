@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "Employees")
@@ -77,38 +78,18 @@ public class Employee extends Model {
     }
 
 
-//    @Column(name = "manager_id")
-//    private Long managerId;
-//
-//    public void setManagerId(Long managerId) {
-//        this.managerId = managerId;
-//    }
-//
-//    public Long getManagerId() {
-//        return managerId;
-//    }
-//
-//    @OneToMany(mappedBy="manager")
-//    private Set<Employee> employees;
-//
-//    public Set<Employee> getEmployees() {
-//        return employees;
-//    }
-//    public void setEmployees(Set<Employee> employees) {
-//        this.employees = employees;
-//    }
-//    @ManyToOne(cascade={CascadeType.ALL})
-//    @JoinColumn(name="manager_id", insertable = false, updatable = false)
-//    private Employee manager;
-//
-//
-//    public Employee getManager() {
-//        return manager;
-//    }
-//
-//    public void setManager(Employee manager) {
-//        this.manager = manager;
-//    }
+    @ManyToOne
+    @JoinColumn(name="manager_id")
+    private Employee manager;
+
+
+    public Employee getManager() {
+        return this.manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
+    }
 
     @ManyToOne(cascade={CascadeType.ALL})
     @JoinColumn(name="department_id")

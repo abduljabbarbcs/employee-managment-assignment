@@ -19,16 +19,16 @@ public class Department extends Model {
         this.departmentName = departmentName;
     }
 
-//    @ManyToOne(cascade={CascadeType.ALL})
-//    @JoinColumn(name="manager_id")
-//    private Employee manager;
-//
-//    public Employee getManager() {
-//        return manager;
-//    }
-//
-//    public void setManager(Employee manager) {
-//        this.manager = manager;
-//    }
+    @ManyToOne
+    @JoinColumn(name="manager_id")
+    private Employee manager;
+
+    public Employee getManager() {
+        return  this.manager;
+    }
+
+    public void setManager(Employee manager) {
+        this.manager = manager;
+    }
 
 }
