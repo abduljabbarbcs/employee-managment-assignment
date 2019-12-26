@@ -6,6 +6,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
 import java.util.Date;
 import java.util.Set;
 
@@ -14,6 +16,7 @@ import java.util.Set;
 @JsonAutoDetect(getterVisibility = JsonAutoDetect.Visibility.NONE, fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Employee extends Model {
     @NotEmpty
+    @Size(min=2)
     private String firstName;
 
     public void setFirstName(String firstName) {
@@ -25,6 +28,7 @@ public class Employee extends Model {
     }
 
     @NotEmpty
+    @Size(min=2)
     private String lastName;
 
     public void setLastName(String lastName) {
@@ -46,7 +50,7 @@ public class Employee extends Model {
         return email;
     }
 
-    @Pattern(regexp="(^$|[0-9]{10})")
+    @Pattern(regexp="(^$|[0-9\\-]{10})")
     private String phoneNumber;
 
     public void setPhoneNumber(String phoneNumber) {
@@ -67,6 +71,7 @@ public class Employee extends Model {
         return hireDate;
     }
 
+    @Min(1)
     private int salary;
 
     public void setSalary(int salary) {
@@ -91,7 +96,7 @@ public class Employee extends Model {
         this.manager = manager;
     }
 
-    @ManyToOne(cascade={CascadeType.ALL})
+    @ManyToOne
     @JoinColumn(name="department_id")
     private Department department;
 
