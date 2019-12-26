@@ -1,0 +1,68 @@
+@import './colors.css';
+
+:root {
+  /* Fonts */
+  --font-size-base: 14px;
+  --font-family: 'Roboto', --apple-system, blinkmacsystemfont, 'Segoe UI',
+    helvetica, aria, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+
+  /* Media Breaks */
+  --break-tablet: 800px;
+  --break-tablet-hd: 950px;
+  --break-laptop: 1140px;
+  --break-laptop-hd: 1366px;
+  --break-desktop: 1920px;
+  --break-height: 600px;
+
+  /* Scrollbar */
+  --scrollbar-width: 5px;
+  --scrollbar-track: rgba(var(--theme-white), 0.25);
+  --scrollbar-thumb: rgba(var(--theme-white), 0.5);
+
+  /* Animation */
+  --animation-duration: 200ms;
+
+  /* Page */
+  --page-bg: var(--theme-darkest);
+  --page-txt: var(--theme-white);
+  --page-txt-spacing: 0.5em;
+  --instruction-spacing: 2em;
+  --page-padding-top: 1rem;
+  --page-padding-left: 1.5rem;
+  --page-padding: var(--page-padding-top) var(--page-padding-left);
+
+  /* Sidebar */
+  --sidebar-width-collapsed: 4.5em;
+  --sidebar-width-expanded: 15.5em;
+  --sidebar-subtab: #727d8c;
+  --sidebar-tab: #3f4e62;
+  --sidebar-divider: #6f7b8a;
+
+  /* Icons */
+  --icon-size: 1em;
+
+  /* Form Fields */
+  --form-field-height: 2.2em;
+  --form-field-height-lg: 3em;
+  --form-field-spacing: 1em;
+  --login-form-field-spacing: 1.8em;
+
+  /* Buttons */
+  --button-primary-bg: 0, 191, 127;
+  --button-height: 2.5em;
+
+  /* Timeline */
+  --timeline-text: var(--theme-lighter-5);
+  --timeline-text-active: var(--theme-white);
+  --timeline-line: var(--theme-lighter-3);
+  --timeline-dot: var(--theme-lighter-1);
+  --timeline-dot-active: var(--theme-green);
+
+  /* Drop Down */
+  --dropdown-height: 15em;
+}

@@ -11,3 +11,5 @@
 **/.mvn/timing.properties
 **/.idea/
 *.log*
+
+**/node_modules/**

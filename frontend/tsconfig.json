@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "isolatedModules": true,
+    "paths": {
+      "@types": ["@types"]
+    },
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noErrorTruncation": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true,
+    "target": "esnext",
+    "typeRoots": ["@types", "./node_modules/@types", "typings.d.ts"]
+  },
+  "exclude": [
+    "node_modules",
+    "server.ts"
+  ]
+}
